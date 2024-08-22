@@ -10,6 +10,7 @@ import kotlin.math.min
 import kotlin.random.Random
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
+import com.example.minesweeper.model.Cell
 
 class MineSweeperView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 

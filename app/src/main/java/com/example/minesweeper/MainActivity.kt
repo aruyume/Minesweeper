@@ -1,6 +1,7 @@
 package com.example.minesweeper
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -42,11 +43,14 @@ class MainActivity : AppCompatActivity(), MineSweeperView.OnScoreChangeListener,
         binding.mineSweeperView.setOnGameEndListener(this)
 
         viewModel.startTimer()
+
+        binding.btnTryAgain.visibility = View.GONE
     }
 
     private fun resetGame() {
         binding.mineSweeperView.resetGame()
         viewModel.resetGame()
+        binding.btnTryAgain.visibility = View.GONE
     }
 
     override fun onScoreChanged(score: Int) {
@@ -72,5 +76,11 @@ class MainActivity : AppCompatActivity(), MineSweeperView.OnScoreChangeListener,
         }
         animationView.visibility = View.VISIBLE
         animationView.playAnimation()
+
+        binding.btnTryAgain.visibility = View.VISIBLE
+        binding.btnTryAgain.setOnClickListener {
+            val intent = Intent(this@MainActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

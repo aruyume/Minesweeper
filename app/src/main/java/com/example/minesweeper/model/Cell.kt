@@ -1,4 +1,4 @@
-package com.example.minesweeper
+package com.example.minesweeper.model
 
 data class Cell(
     val x: Int,
